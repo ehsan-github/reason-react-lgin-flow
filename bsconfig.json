@@ -9,7 +9,11 @@
   "bs-dependencies": [
     "reason-react",
     "@glennsl/bs-jest",
-    "bs-css"
+    "bs-css",
+    "reason-apollo"
+  ],
+  "ppx-flags": [
+    "graphql_ppx/ppx"
   ],
   "reason": {
     "react-jsx": 2
