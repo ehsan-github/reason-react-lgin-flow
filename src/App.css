@@ -1,20 +1,21 @@
 body {
-font-family: Roboto;
+    font-family: Roboto;
 }
-  .ant-row > div {
-    padding: 0;
-  }
 
-  .isoLeftRightComponent {
+.ant-row > div {
+    padding: 0;
+}
+
+.isoLeftRightComponent {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-  }
+}
 
-  .isoCenterComponent {
+.isoCenterComponent {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-  }
+}
