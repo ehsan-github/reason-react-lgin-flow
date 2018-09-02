@@ -6,8 +6,12 @@ type state = {
   rememberMe: bool,
 };
 
+type valueName = 
+| Email 
+| Password;
+
 type action =
-  | Change(string, string)
+  | Change(valueName, string)
   | ChangeRemeber;
 
 let component = ReasonReact.reducerComponent("Signin");
@@ -21,8 +25,8 @@ let make = _children => {
       switch (action) {
       | Change(name, text) =>
         switch (name) {
-        | "email" => ReasonReact.Update({...state, email: text})
-        | "password" => ReasonReact.Update({...state, password: text})
+        | Email => ReasonReact.Update({...state, email: text})
+        | Password => ReasonReact.Update({...state, password: text})
         }
       | ChangeRemeber =>
         ReasonReact.Update({...state, rememberMe: !state.rememberMe})
@@ -51,9 +55,9 @@ let make = _children => {
                       event =>
                         send(
                           Change(
-                            "email",
-                            ReactEvent.Form.target(event)##value,
-                          ),
+                            Email,
+                            ReactEvent.Form.target(event)##value
+                          )
                         )
                     }
                   />
@@ -68,9 +72,9 @@ let make = _children => {
                       event =>
                         send(
                           Change(
-                            "password",
-                            ReactEvent.Form.target(event)##value,
-                          ),
+                            Password,
+                            ReactEvent.Form.target(event)##value
+                          )
                         )
                     }
                   />
