@@ -112,9 +112,9 @@ let make = _children => {
                 </div>
               </form>
               <div className="isoCenterComponent isoHelperWrapper">
-                <a href="">
+                <Router.Link route=Signup>
                   {ReasonReact.string("Dont have an account? Create one.")}
-                </a>
+                </Router.Link>
               </div>
             </div>
           </div>

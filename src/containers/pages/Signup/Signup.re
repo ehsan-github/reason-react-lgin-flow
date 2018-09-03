@@ -357,14 +357,15 @@ let make = _children => {
                   </div>
                   <div
                     className="isoInputWrapper isoCenterComponent isoHelperWrapper">
-                    /* <Link to="/signin"> */
+                    <Router.Link route=Signin>
                     /* <IntlMessages id="page.signUpAlreadyAccount" /> */
-                     {ReasonReact.string("Have Acount? Sign in.")} </div>
+                     {ReasonReact.string("Already have an account? Sign in.")}
+                    </Router.Link>
+                  </div>
                 </div>
               </form>
           </div>
         </div>
       </div>
     </div>,
-  /* </Link> */
 };
