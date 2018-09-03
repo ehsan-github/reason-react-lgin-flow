@@ -14,6 +14,7 @@ let make = (_children) => {
                switch currentRoute {
                | Signin => <Signin />
                | Signup => <Signup />
+               | ForgotPass => <ForgotPass />
                | NotFound => <div> (ReasonReact.string("Not Found")) </div>
                }
            )

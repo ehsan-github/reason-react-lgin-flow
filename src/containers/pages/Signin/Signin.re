@@ -86,9 +86,9 @@ let make = _children => {
                     {ReasonReact.string("Remember me")}
                   </Antd.Checkbox>
                   <div>
-                    <a className="isoForgotPass">
+                    <Router.Link route=ForgotPass className="isoForgotPass">
                       {ReasonReact.string("Forgot password")}
-                    </a>
+                    </Router.Link>
                   </div>
                 </div>
                 <div className="isoInputWrapper isoOtherLogin">
