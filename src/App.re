@@ -4,20 +4,19 @@
 
 let component = ReasonReact.statelessComponent("App");
 
-let make = (~message, _children) => {
+let make = (_children) => {
   ...component,
-  render: _self =>
+  render: (_self) =>
     <ReasonApollo.Provider client=GqlClient.instance>
-      <div className="App">
-        <div className="App-header">
-          <img src=logo className="App-logo" alt="logo" />
-          <h2> (ReasonReact.string(message)) </h2>
-        </div>
-        <p className="App-intro">
-          (ReasonReact.string("To get started, edit"))
-          <code> (ReasonReact.string(" src/App.re ")) </code>
-          (ReasonReact.string("and save to reload."))
-        </p>
-      </div>
+      <Router.WithRouter>
+        ...(
+             (~currentRoute) =>
+               switch currentRoute {
+               | Signin => <Signin />
+               | Signup => <Signup />
+               | NotFound => <div> (ReasonReact.string("Not Found")) </div>
+               }
+           )
+      </Router.WithRouter>
     </ReasonApollo.Provider>
 };
