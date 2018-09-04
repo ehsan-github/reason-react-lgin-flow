@@ -15,6 +15,7 @@ let make = (_children) => {
                | Signin => <Signin />
                | Signup => <Signup />
                | ForgotPass => <ForgotPass />
+               | Profile => <Profile />
                | NotFound => <div> (ReasonReact.string("Not Found")) </div>
                }
            )

@@ -2,6 +2,7 @@
     | Signup
     | Signin
     | ForgotPass
+    | Profile
     | NotFound;
 
 let routeToString =
@@ -9,6 +10,7 @@ let routeToString =
   | Signin => "/signin"
   | Signup => "/signup"
   | ForgotPass => "/forgotpassword"
+  | Profile => "/profile"
   | NotFound => "/notfound";
 
 let mapUrlToRoute = (url: ReasonReact.Router.url) =>
@@ -17,13 +19,6 @@ let mapUrlToRoute = (url: ReasonReact.Router.url) =>
     | [] => Signin
     | ["signup"] => Signup
     | ["forgotpassword"] => ForgotPass
+    | ["profile"] => Profile
     | _ => NotFound
-    };
-
-let urlToRoute: ReasonReact.Router.url => route =
-  url =>
-    switch url.path {
-    | ["signin"] => Signin
-    | ["signup"] => Signup
-    | ["forgotpassword"] => ForgotPass
     };
