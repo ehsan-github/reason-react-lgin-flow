@@ -26,7 +26,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "prepare": "npm link bs-platform"
+    "prepare": "npm link bs-platform",
+    "postinstall": "find node_modules/graphql -type f -name *.mjs | xargs rm"
   },
   "devDependencies": {
     "@glennsl/bs-jest": "^0.4.3",
