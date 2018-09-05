@@ -1,0 +1,124 @@
+  .side-bar-wrapper .isomorphicSidebar {
+      z-index: 1000;
+      background: #2d3446;
+      width: 280px;
+      flex: 0 0 280px;
+      height: 100%;
+  }
+
+  @media only screen and (max-width: 767px) {
+      .side-bar-wrapper .isomorphicSidebar {
+          width: 240px !important;
+          flex: 0 0 240px !important;
+      }
+
+      .side-bar-wrapper .isomorphicSidebar .ant-layout-sider-collapsed {
+          width: 0;
+          min-width: 0 !important;
+          max-width: 0 !important;
+          flex: 0 0 0 !important;
+      }
+  }
+
+  .side-bar-wrapper .isoLogoWrapper {
+      height: 70px;
+      background: rgba(0, 0, 0, 0.3);
+      margin: 0;
+      padding: 0 10px;
+      text-align: center;
+      overflow: hidden;
+  }
+
+  .side-bar-wrapper .isoLogoWrapper h3 a {
+      font-size: 21px;
+      font-weight: 300;
+      line-height: 70px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #F9F9F9;
+      display: block;
+      text-decoration: none;
+  }
+
+  .side-bar-wrapper .isoLogoWrapper .ant-layout-sider-collapsed .isoLogoWrapper {
+      padding: 0;
+  }
+
+  .side-bar-wrapper .isoLogoWrapper .ant-layout-sider-collapsed .isoLogoWrapper h3 a {
+      font-size: 27px;
+      font-weight: 500;
+      letter-spacing: 0;
+  }
+
+  .side-bar-wrapper .ant-layout-sider-trigger {
+      background: transparent !important;
+      color: transparent !important;
+  }
+
+  .isoDashboardMenu {
+      padding-top: 35px;
+      padding-bottom: 35px;
+      background: transparent;
+  }
+
+  .isoDashboardMenu a {
+      text-decoration: none;
+      font-weight: 400;
+  }
+
+  .isoDashboardMenu .ant-menu-item {
+      width: 100%;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+      align-items: center;
+      padding: 0 24px;
+  }
+
+  .isoDashboardMenu .isoMenuHolder {
+      display: flex;
+      align-items: center;
+  }
+
+  .isoDashboardMenu .anticon {
+      font-size: 18px;
+      margin-right: 30px;
+      color: inherit;
+      /* ${transition()}; */
+  }
+
+  .isoDashboardMenu i {
+      font-size: 19px;
+      color: inherit;
+      margin: 0 30px 0 0;
+      width: 18px;
+      /* ${transition()}; */
+  }
+
+  .isoDashboardMenu .nav-text {
+      font-size: 14px;
+      color: inherit;
+      font-weight: 400;
+      /* ${transition()}; */
+  }
+
+  .isoDashboardMenu .ant-menu-item-selected {
+      background-color: rgba(0, 0, 0, 0.4) !important;
+  }
+
+  .isoDashboardMenu .ant-menu-item-selected .anticon {
+      color: #fff;
+  }
+
+  .isoDashboardMenu .ant-menu-item-selected i {
+      color: #fff;
+  }
+
+  .isoDashboardMenu .ant-menu-item-selected .nav-text {
+      color: #fff;
+  }
+
+  .isoDashboardMenu>li:hover i,
+  .nav-text {
+      color: #ffffff;
+  }

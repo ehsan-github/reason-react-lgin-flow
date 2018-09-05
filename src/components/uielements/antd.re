@@ -627,6 +627,8 @@ module Layout = {
           ~onCollapse=?,
           ~trigger=?,
           ~collapsed=?,
+          ~onMouseEnter=?,
+          ~onMouseLeave=?,
         ) =>
       ReasonReact.wrapJsForReason(
         ~reactClass=sider,
@@ -645,6 +647,8 @@ module Layout = {
               "onCollapse": fromOption(onCollapse),
               "trigger": fromOption(trigger),
               "collapsed": fromOption(collapsed),
+              "onMouseEnter": fromOption(onMouseEnter),
+              "onMouseLeave": fromOption(onMouseLeave),
             }
           ),
       );
