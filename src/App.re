@@ -17,6 +17,7 @@ let make = (_children) => {
                | ForgotPass => <ForgotPass />
                | ResetPass(code) => <ResetPass code />
                | EmailVerified => <EmailVerified />
+               | GoogleLogin(query) => <GoogleLogin query />
                | Profile => <Profile />
                | Dashboard => <ImmiApp />
                | NotFound => <div> (ReasonReact.string("Not Found")) </div>
