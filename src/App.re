@@ -15,7 +15,10 @@ let make = (_children) => {
                | Signin => <Signin />
                | Signup => <Signup />
                | ForgotPass => <ForgotPass />
+               | ResetPass(code) => <ResetPass code />
+               | EmailVerified => <EmailVerified />
                | Profile => <Profile />
+               | Dashboard => <ImmiApp />
                | NotFound => <div> (ReasonReact.string("Not Found")) </div>
                }
            )

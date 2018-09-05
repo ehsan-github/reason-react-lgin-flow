@@ -17,7 +17,7 @@ let reducer = (action, state) =>
 
 let component = ReasonReact.reducerComponent("ResetPass");
 
-let make = _children => {
+let make = (~code, _children) => {
   let submit = state => Js.log(state);
   {
     ...component,
