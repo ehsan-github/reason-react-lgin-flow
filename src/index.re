@@ -3,6 +3,7 @@
 [%bs.raw {|require('antd/dist/antd.css')|}];
 [%bs.raw {|require('./assets/css/ionicons.min.css')|}];
 [%bs.raw {|require('./assets/css/roboto.css')|}];
+[%bs.raw {|require('./assets/css/classnames.css')|}];
 
 
 [@bs.module "./registerServiceWorker"]
