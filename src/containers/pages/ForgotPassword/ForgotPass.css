@@ -11,6 +11,9 @@
     justify-content: center;
     text-align: center;
 }
+.isoForgotPassPage .ant-alert-with-description.ant-alert-no-icon {
+    margin-bottom: 10px;
+}
 
 .isoForgotPassPage:before {
     content: '';
