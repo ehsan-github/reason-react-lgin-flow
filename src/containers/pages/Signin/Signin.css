@@ -75,6 +75,7 @@
 .isoSignInForm .isoInputWrapper {
     margin-bottom: 15px;
 }
+
 .isoSignInForm .ant-input {
     font-size: 13px;
 }
@@ -194,6 +195,7 @@
 .isoSignInPage .social span:after {
     left: 55%;
 }
+
 .isoSignInPage .isoLeftRightComponent {
     display: -webkit-box;
     display: -webkit-flex;
@@ -208,4 +210,8 @@
     -ms-flex-pack: justify;
     justify-content: space-between;
     width: 100%;
+}
+
+.isoSignInPage .alert-box {
+    padding: 20px 15px;
 }

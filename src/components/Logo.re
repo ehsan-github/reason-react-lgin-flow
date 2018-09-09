@@ -9,14 +9,14 @@ let make = (~collapsed, ~openDrawer, _children) => {
       {realCollapsed ? (
         <div>
           <h3>
-            <Router.Link route=Dashboard>
+            <Router.Link route=Dashboard([])>
               <i className="ion-home" />
             </Router.Link>
           </h3>
         </div>
       ) : (
         <h3>
-          <Router.Link route=Dashboard>{Utils.str("IMMIWORK")}</Router.Link>
+          <Router.Link route=Dashboard([])>{Utils.str("IMMIWORK")}</Router.Link>
         </h3>
       )}
     </div>
