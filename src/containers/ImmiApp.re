@@ -19,7 +19,7 @@ let component = ReasonReact.reducerComponent("ImmiApp");
 
 let appHeight = [%bs.raw {| window.innerHeight |}];
 
-let make = _children => {
+let make = (~tailRoutes, ~logout, _children) => {
   ...component,
   initialState: () => {collapsed: true, openDrawer: false},
   reducer,
@@ -30,6 +30,7 @@ let make = _children => {
             toggleCollapsed={(e_) => send(ToggleCollapsed)}
             collapsed={state.collapsed}
             openDrawer={state.openDrawer}
+            logout
           />
           <Antd.Layout className="side-layout">
             <Sidebar
@@ -41,7 +42,15 @@ let make = _children => {
             <Antd.Layout className="isoContentMainLayout">
               <Antd.Layout.Content
                 className="isomorphicContent content-top"
-              />
+              >
+                  <div>{Utils.str("HOME")}</div>
+              {
+                switch(tailRoutes){
+                  | [] => <div>{Utils.str("HOME")}</div>
+                  | ["profile"] => <Profile />
+                }
+              }
+              </Antd.Layout.Content>
               <Antd.Layout.Footer className="app-footer">
                 {Utils.str("IMMIWORK 2018 Created by ImmiWork, Inc")}
               </Antd.Layout.Footer>
