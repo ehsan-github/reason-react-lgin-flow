@@ -1,7 +1,7 @@
 [%bs.raw {| require('./Topbar.css') |}]
 let component = ReasonReact.statelessComponent("Topbar");
 
-let make = (~collapsed, ~openDrawer, ~toggleCollapsed, _children) => {
+let make = (~logout, ~collapsed, ~openDrawer, ~toggleCollapsed, _children) => {
   let realCollapsed = collapsed && !openDrawer;
   let headerClass: string =
     realCollapsed ? "isomorphicTopbar collapsed" : "isomorphicTopbar";
@@ -19,7 +19,7 @@ let make = (~collapsed, ~openDrawer, ~toggleCollapsed, _children) => {
             <li
               className="isoUser"
             />
-              <TopbarUser />
+              <TopbarUser logout />
           </ul>
         </Antd.Layout.Header>
       </div>,

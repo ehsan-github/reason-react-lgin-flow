@@ -36,7 +36,7 @@ let make =
               selectedKeys=[]
               onOpenChange>
               <Antd.Menu.Item>
-                <Router.Link route=Dashboard>
+                <Router.Link route=Dashboard([])>
                   <span className="isoMenuHolder">
                     <i className="ion-flash" />
                     <span className="nav-text"> {Utils.str("blank")} </span>
