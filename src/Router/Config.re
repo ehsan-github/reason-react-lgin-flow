@@ -6,8 +6,7 @@ type route =
   | EmailVerified
   | GoogleLogin(string)
   | Profile
-  | Dashboard
-  | InDashboard(list(string))
+  | Dashboard(list(string))
   | NotFound;
 
 let routeToString =
@@ -18,18 +17,16 @@ let routeToString =
   | ResetPass(code) => "/resetpassword" ++ code
   | EmailVerified => "/emailverif"
   | Profile => "/profile"
-  | Dashboard => "/dashboard"
-  | InDashboard(remainRoutes) => "/dashboard"++Js.Array.joinWith("/ ", Array.of_list(remainRoutes))
+  | Dashboard(remainRoutes) => "/dashboard/"++Js.Array.joinWith("/", Array.of_list(remainRoutes))
   | NotFound => "/notfound"
   | _ => "/notfound";
 
 let mapUrlToRoute = (url: ReasonReact.Router.url) => {
   switch (url.path) {
-  | ["signin"]
-  | [] => Signin
+  | ["signin"] => Signin
   | ["signup"] => Signup
-  | ["dashboard"] => Dashboard
-  | ["dashboard", ...etc] => InDashboard(etc)
+  | [] | ["dashboard"] => Dashboard([])
+  | ["dashboard", ...etc] => Dashboard(etc)
   | ["google", "authorize"] => GoogleLogin(url.search)
   | ["forgotpassword"] => ForgotPass
   | ["resetpassword", code] => ResetPass(code)
