@@ -52,7 +52,7 @@ let make = (_children) => {
                | (_, Signup) => <Signup />
                | (_, ForgotPass) => <ForgotPass />
                | (_, ResetPass(code)) => <ResetPass code />
-               | (_, EmailVerified) => <EmailVerified />
+               | (_, EmailVerified(code)) => <EmailVerified code/>
                | (_, GoogleLogin(query)) => <GoogleLogin query />
                | (_, NotFound) => <div> (ReasonReact.string("Not Found")) </div>
                | (False, _) => {

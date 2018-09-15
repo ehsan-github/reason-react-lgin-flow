@@ -1,61 +1,65 @@
 /* [%bs.raw {|require('../ForgotPassword/ForgotPass.css')|}]; */
-type state = {loading: bool, message: string, verified: bool};
 
-type action =
-  | SetSuccess
-  | SetFailure;
+module VerifEmail = [%graphql
+  {|
+query verifEmail($code: String!){
+  verifyEmail(code: $code) {
+    access_token
+  }
+}
+|}
+];
 
-let reducer = (action, _state) =>
-  switch action {
-  | SetSuccess => ReasonReact.Update({
-    loading: false, 
-    verified: true, 
-    message: "Your email verified successfully"})
-  | SetFailure => ReasonReact.Update({
-    loading: false, 
-    verified: false, 
-    message: "There was an erro in email verification"});
-  };
+module CheckVerifEmail = ReasonApollo.CreateQuery(VerifEmail);
 
-let component = ReasonReact.reducerComponent("EmailVerif");
+let component = Utils.scomp("EmailVerif");
 
-let make = (_children) => {
-  {
-    ...component,
-    initialState: () => {
-    loading: true,
-    verified: false,
-    message: "checking verification please wait ..."
-    },
-    reducer,
-    render: ({state}) =>
-    <div className="isoForgotPassPage">
-        <div className="isoFormContentWrapper">
-          <div className="isoFormContent">
-            <div className="isoLogoWrapper">
-              <Router.Link route=Signin>
-                /* <IntlMessages id="page.forgetPassTitle" /> */
-                 (ReasonReact.string("IMMIWORK"))
-              </Router.Link>
-            </div>
-            <Antd.Spin spinning={state.loading} delay=500>
-              <Antd.Alert
-                description={state.message}
-                type_={state.verified ? "success" : "error"}
-                />
-            </Antd.Spin>
-
-              <div style={ReactDOMRe.Style.make(~margin="30px", ())}/>
-              <div className="buttondiv">
-                <Antd.Button type_="primary" >
-                  <Router.Link route=Signin>
-                    /* <IntlMessages id="page.goToSigninPage" /> */
-                    (ReasonReact.string("Sign in"))
-                  </Router.Link>
-                </Antd.Button>
-              </div>
-            </div>
-          </div>
-        </div>
-        }
+let make = (~code, _children) => {
+  ...component,
+  render: _ => {
+    let verifQuery = VerifEmail.make(~code, ());
+    <CheckVerifEmail variables=verifQuery##variables>
+      ...{
+           ({result}) =>
+             <div className="isoForgotPassPage">
+               <div className="isoFormContentWrapper">
+                 <div className="isoFormContent">
+                   <div className="isoLogoWrapper">
+                     <Router.Link route=Signin>
+                       {ReasonReact.string("IMMIWORK")}
+                     </Router.Link>
+                   </div>
+                   <Antd.Spin spinning={result == Loading} delay=500>
+                     <Antd.Alert
+                       message=""
+                       description={
+                         switch(result){
+                           | Data(_x)   => "Your email verified successfullystate."
+                           | Error(err) => err##message
+                           | _          => ""
+                         }
+                       }
+                       type_={
+                         switch(result){
+                           | Data(_x)   => "success"
+                           | Error(_e) => "error"
+                           | _          => "info"
+                         }
+                       }
+                     />
+                   </Antd.Spin>
+                   <div style={ReactDOMRe.Style.make(~margin="30px", ())} />
+                   <div className="buttondiv">
+                     <Antd.Button type_="primary">
+                       <Router.Link route=Signin>
+                         {ReasonReact.string("Sign in")}
+                       </Router.Link>
+                     </Antd.Button>
+                   </div>
+                 </div>
+               </div>
+             </div>
+         }
+    </CheckVerifEmail>;
+  },
 };
