@@ -659,7 +659,38 @@ module Notification = {
   type stringOrNode;
   type options;
   type key = string;
-  [@bs.module "antd/lib/notification"] external success : options => unit = "";
+  module Success = {
+  [@bs.module "antd/lib/notification"] 
+  external success : ReasonReact.reactClass = "Success";
+    let make = (
+      ~id=?, 
+      ~className=?,
+       ~style=?,
+       ~description,
+       ~duration=?,
+       ~key=?,
+       ~message,
+       ~placement=?,
+       ~onClose=?
+       ) =>
+      ReasonReact.wrapJsForReason(
+        ~reactClass=success,
+        ~props=
+          Js.Undefined.(
+            {
+              "id": fromOption(id),
+              "className": fromOption(className),
+              "style": fromOption(style),
+              "description": description,
+              "duration": fromOption(duration),
+              "key": fromOption(key),
+              "message": message,
+              "placement": fromOption(placement),
+              "onClose": fromOption(onClose)
+            }
+          ),
+      );
+  };
   [@bs.module "antd/lib/notification"] external error : options => unit = "";
   [@bs.module "antd/lib/notification"] external info : options => unit = "";
   [@bs.module "antd/lib/notification"] external warning : options => unit = "";
@@ -794,7 +825,7 @@ module Transfer = {
 
 module Popover = {
   [@bs.module] external popover : ReasonReact.reactClass = "antd/lib/popover";
-  let make = (~id=?, ~className=?, ~style=?, ~title=?, ~content=?) =>
+  let make = (~id=?, ~className=?, ~style=?, ~title=?, ~content=?, ~placement=?, ~trigger=?, ~arrowPointAtCenter=?) =>
     ReasonReact.wrapJsForReason(
       ~reactClass=popover,
       ~props=
@@ -805,6 +836,9 @@ module Popover = {
             "style": fromOption(style),
             "title": fromOption(title),
             "content": fromOption(content),
+            "placement": fromOption(placement),
+            "trigger": fromOption(trigger),
+            "arrowPointAtCenter": fromOption(arrowPointAtCenter)
           }
         ),
     );

@@ -10,7 +10,8 @@
     "reason-react",
     "@glennsl/bs-jest",
     "bs-css",
-    "reason-apollo"
+    "reason-apollo",
+    "rationale"
   ],
   "ppx-flags": [
     "graphql_ppx/ppx"

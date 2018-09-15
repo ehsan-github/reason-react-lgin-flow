@@ -1683,6 +1683,10 @@ bs-loader@^2.0.3:
     loader-utils "^1.1.0"
     read-bsconfig "^1.0.1"
 
+bs-react-notification-system@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/bs-react-notification-system/-/bs-react-notification-system-0.0.6.tgz#2578ac8605f0471d4b488f38af2146aef89e54e3"
+
 bsb-js@^1.0.0:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/bsb-js/-/bsb-js-1.1.7.tgz#12cc91e974f5896b3a2aa8358419d24e56f552c3"
@@ -6752,6 +6756,10 @@ randomfill@^1.0.3:
 range-parser@^1.0.3, range-parser@~1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.0.tgz#f49be6b487894ddc40dcc94a322f611092e00d5e"
+
+rationale@^0.1.6:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/rationale/-/rationale-0.1.6.tgz#edef118591194d9c3e06ea1e23ceb461ee61d703"
 
 raw-body@2.3.2:
   version "2.3.2"
